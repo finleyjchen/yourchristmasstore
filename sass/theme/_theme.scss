@@ -1,0 +1,33 @@
+// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+
+.navbar {
+    padding:0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.navbar-brand {
+    /*background-color:#fff;*/
+}
+
+.jumbotron {
+}
+
+.footer-list {
+    padding:0;
+    margin:0;
+    li {
+        list-style: none;
+
+    }
+}
+
+#wrapper-navbar {
+    position:fixed;
+    top:0;
+    z-index: 1;
+    width:100%;
+    
+}
+#content {
+    margin-top:1em;
+}
