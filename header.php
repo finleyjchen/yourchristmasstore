@@ -28,38 +28,50 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="hfeed site" id="page">
 
 	<!-- ******************* The Navbar Area ******************* -->
-	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
+	<div class="bg-primary" id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
+		<div class="top-bar bg-white">
+			<div class="container">
 
-		<nav class="navbar navbar-expand-md navbar-dark bg-primary">
-
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container" >
-		<?php endif; ?>
-
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
+				<nav class="navbar navbar-expand-md navbar-dark">
+												<!-- Your site title as branding in the menu -->
+							<?php if ( ! has_custom_logo() ) { ?>
+							<?php if ( is_front_page() && is_home() ) : ?>
 
 							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
 
-						<?php else : ?>
+							<?php else : ?>
 
 							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
 
-						<?php endif; ?>
+							<?php endif; ?>
 
-
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
-
+							<?php } else {
+							the_custom_logo();
+							} ?><!-- end custom logo -->
+	
+										<!-- The WordPress Menu goes here -->
+										<?php wp_nav_menu(
+											array(
+												'theme_location'  => 'meta',
+												'container_class' => 'mx-auto',
+												'container_id'    => 'secondaryDropdown',
+												'menu_class'      => 'navbar-nav',
+												'fallback_cb'     => '',
+												'menu_id'         => 'meta-menu',
+												'depth'           => 2,
+												'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+											)
+										); ?>
+				</nav><!-- .site-navigation -->
+			</div>
+		</div>
+	<div class="">
+		<nav class="navbar navbar-expand-md navbar-dark">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
 				<!-- The WordPress Menu goes here -->
 				<?php wp_nav_menu(
 					array(
@@ -68,15 +80,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 						'container_id'    => 'navbarNavDropdown',
 						'menu_class'      => 'navbar-nav',
 						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
+						'menu_id'         => 'primary-menu',
 						'depth'           => 2,
-						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
 					)
 				); ?>
-			<?php if ( 'container' == $container ) : ?>
-			</div><!-- .container -->
-			<?php endif; ?>
 
 		</nav><!-- .site-navigation -->
-
+	</div><!-- .container -->
 	</div><!-- #wrapper-navbar end -->

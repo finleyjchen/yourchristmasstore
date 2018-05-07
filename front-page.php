@@ -21,11 +21,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<main class="site-main" id="main" role="main">
 
-					<div class="jumbotron bg-cover text-center" style="background-image: url(<?php echo get_stylesheet_directory_uri() ?>/img/christmas.jpg);">
+					<div class="jumbotron text-center bg-cover" style="background-image: url(<?php echo get_stylesheet_directory_uri() ?>/img/christmas.jpg);">
 
-						<h1 class="text-white mb-4">SUCK MY DICK.</h1>
+						<h1 class="text-white mb-4">Mark Roberts</h1>
 						<a href="" class="jumbotron-button btn btn-danger">
-							<h4>Suck Now</h4>
+							<h4>Buy our stuff</h4>
 						</a>
 					</div>
 
